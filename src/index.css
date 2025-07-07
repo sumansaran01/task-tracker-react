@@ -1,0 +1,264 @@
+/* Enhanced UI for Task Tracker */
+:root {
+  --bg-light: #f4f4f9;
+  --bg-dark: #1e1e2f;
+  --text-light: #1a1a1a;
+  --text-dark: #f4f4f9;
+  --primary: #363b54; /* muted blue */
+  --secondary: #746388; /* muted purple */
+  --gray: #bbb;
+  --error: #5d2322;
+  --success: #284c2a;
+  --card-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  --radius: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  --primary: #8f9bd6;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.task-area {
+  flex: 1;
+  padding: 2rem;
+  background: var(--bg-light);
+  transition: background 0.3s ease;
+}
+
+body.dark .task-area {
+  background: var(--bg-dark);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.task-header h2 {
+  font-size: 1.8rem;
+}
+
+.task-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.task-input input {
+  flex: 1 1 200px;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray);
+  font-size: 1rem;
+}
+
+.task-input button {
+  background: var(--primary);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.task-input button:hover {
+  background: #5c6ac4;
+}
+
+.task-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background: white;
+  margin-bottom: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+}
+
+body.dark .task-item {
+  background: #2a2a3a;
+}
+
+.task-item.overdue {
+  border-left: 5px solid var(--error);
+}
+
+.task-item.done {
+  border-left: 5px solid var(--success);
+  opacity: 0.9;
+}
+
+.task-info {
+  flex-grow: 1;
+  cursor: pointer;
+  padding-right: 1rem;
+}
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.task-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.task-deadline {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.task-notes {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  opacity: 0.9;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 20px;
+  margin-top: 0.4rem;
+}
+
+.badge-overdue {
+  background: var(--error);
+  color: white;
+}
+
+.badge-pending {
+  background: var(--gray);
+  color: black;
+}
+
+.badge-done {
+  background: var(--success);
+  color: white;
+}
+
+.toggle-dark {
+  background: var(--bg-light);
+  color: var(--text-light);
+  border: 1px solid var(--gray);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+body.dark .toggle-dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.no-tasks {
+  margin-top: 2rem;
+  color: var(--gray);
+  font-style: italic;
+  text-align: center;
+}
+
+.profile-sidebar {
+  background: white;
+  padding: 2rem 1rem;
+  border-right: 1px solid var(--gray);
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--card-shadow);
+}
+
+body.dark .profile-sidebar {
+  background: #2a2a3a;
+  color: var(--text-dark);
+}
+
+.profile-avatar {
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.profile-email {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.task-filters button {
+  margin: 0.3rem 0;
+  padding: 0.5rem 1rem;
+  background: var(--secondary);
+  border: none;
+  color: white;
+  border-radius: var(--radius);
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.task-filters button:hover {
+  background: #a88fd4;
+}
+
+.profile-sidebar button:last-child {
+  margin-top: auto;
+  background: #643635;
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  border-radius: var(--radius);
+  cursor: pointer;
+  width: 100%;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.profile-sidebar button:last-child:hover {
+  background: #8e4141;
+}
