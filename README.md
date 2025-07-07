@@ -25,7 +25,7 @@ Used to:
 ## 🛠 Setup Instructions
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/task-tracker-react.git
+git clone https:https://github.com/sumansaran01/task-tracker-react
 cd task-tracker-react
 npm install
 npm run dev
