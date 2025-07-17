@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Login from './components/Login';
-import TaskInput from './components/TaskInput';
-import TaskList from './components/TaskList';
+import TaskInput from './components/taskInput';
+import TaskList from './components/taskList';
 import Profile from './components/Profile';
 
 const getStorageKey = (user) => user ? `tasks_${user.email.toLowerCase()}` : null;
